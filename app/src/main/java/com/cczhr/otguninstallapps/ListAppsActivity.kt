@@ -10,6 +10,7 @@ import com.cczhr.otguninstallapps.adapter.ListAppsAdapter
 import com.cczhr.otguninstallapps.bean.App
 import com.cczhr.otguninstallapps.utils.Application.Companion.libTools
 import com.cczhr.otguninstallapps.utils.CommonUtil
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.mcxtzhang.indexlib.suspension.SuspensionDecoration
 import kotlinx.android.synthetic.main.activity_list_apps.*
 import kotlinx.android.synthetic.main.activity_list_apps.log
@@ -68,14 +69,24 @@ class ListAppsActivity:BaseActivity() {
            CommonUtil.showToast(this,R.string.please_select_an_application)
             return
         }
-        dialog=CommonUtil.showProgressDialog(this,R.string.please_wait)
-        libTools.uninstallApps(listApps,{
-            logAdd(it)
-        },{
-            logAdd(it)
-        },{
-            dialog?.dismiss()
-            adapter.notifyDataSetChanged()
-        })
+        MaterialAlertDialogBuilder(this)
+            .setTitle(R.string.tips)
+            .setMessage(R.string.uninstall_hint)
+            .setPositiveButton(R.string.confirm) { d, _ ->
+                d.dismiss()
+                dialog=CommonUtil.showProgressDialog(this,R.string.please_wait)
+                libTools.uninstallApps(listApps,{
+                    logAdd(it)
+                },{
+                    logAdd(it)
+                },{
+                    dialog?.dismiss()
+                    adapter.notifyDataSetChanged()
+                })
+
+            }.setNeutralButton(R.string.cancel, null).show()
+
+
+
     }
 }

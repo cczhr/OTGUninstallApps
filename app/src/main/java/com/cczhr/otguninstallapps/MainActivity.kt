@@ -125,8 +125,8 @@ class MainActivity : BaseActivity() {
 
     fun listApps(view: View) {
         dialog?.dismiss()
-        dialog=CommonUtil.getProgressDialog(this,R.string.please_wait)
         if(checkStatus()){
+            dialog=CommonUtil.showProgressDialog(this,R.string.please_wait)
             val  listApps=ArrayList<App>()
             var isSuccessed=true
             libTools.listApps({
