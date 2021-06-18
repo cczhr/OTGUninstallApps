@@ -51,9 +51,9 @@ class IMobileDeviceTools {
                 if (deviceNode.isNotEmpty()) "kill `lsof  -t $deviceNode`\n" else deviceNode
             val killPort =
                 "kill  `netstat -tunlp  | grep 27015|awk '{print $7} '|awk -F '/' '{print $1}'`"
-            runCommand("$killSystemMtp.$saveFilePath/usbmuxd -X -v -f\n$killPort")
-            SystemClock.sleep(2000)//保证进程杀死 休眠一下
-            isKilling = false
+            runCommand("$killSystemMtp.$saveFilePath/usbmuxd -X -v -f\n$killPort",isFinish = {
+                isKilling = false
+            })
         }
 
     }
