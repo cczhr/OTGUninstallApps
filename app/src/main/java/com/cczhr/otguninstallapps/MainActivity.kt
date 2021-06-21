@@ -6,8 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
-import com.cczhr.otglocation.utils.HotPlugTools
-import com.cczhr.otglocation.utils.IMobileDeviceTools
+import com.cczhr.otguninstallapps.utils.HotPlugTools
 import com.cczhr.otguninstallapps.bean.App
 import com.cczhr.otguninstallapps.utils.Application
 import com.cczhr.otguninstallapps.utils.Application.Companion.libTools

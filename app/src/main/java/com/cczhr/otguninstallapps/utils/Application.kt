@@ -2,7 +2,6 @@ package com.cczhr.otguninstallapps.utils
 
 import android.app.Application
 import android.content.Context
-import com.cczhr.otglocation.utils.IMobileDeviceTools
 
 
 class Application : Application() {
@@ -14,7 +13,7 @@ class Application : Application() {
     }
 
     companion object {
-        lateinit var libTools:IMobileDeviceTools
+        lateinit var libTools: IMobileDeviceTools
         lateinit var context: Application
         private val NAME: String = Application::class.java.simpleName
         private const val LON = "lon"

@@ -1,4 +1,4 @@
-package com.cczhr.otglocation.utils
+package com.cczhr.otguninstallapps.utils
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -6,9 +6,6 @@ import android.content.res.AssetManager
 import android.os.SystemClock
 import androidx.lifecycle.MutableLiveData
 import com.cczhr.otguninstallapps.bean.App
-import com.cczhr.otguninstallapps.utils.Application
-import com.cczhr.otguninstallapps.utils.runMainThread
-import com.cczhr.otguninstallapps.utils.saveFilesDir
 import java.io.BufferedReader
 import java.io.DataOutputStream
 import java.io.File

@@ -1,4 +1,4 @@
-package com.cczhr.otglocation.utils
+package com.cczhr.otguninstallapps.utils
 
 import android.content.BroadcastReceiver
 import android.content.Context
