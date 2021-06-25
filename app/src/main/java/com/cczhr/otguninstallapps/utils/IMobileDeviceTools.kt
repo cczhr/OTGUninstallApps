@@ -45,12 +45,12 @@ class IMobileDeviceTools {
             isKilling = true
             SystemClock.sleep(1500)
             val killSystemMtp =
-                if (deviceNode.isNotEmpty()) "kill `lsof  -t $deviceNode`\n" else deviceNode
+                if (deviceNode.isNotEmpty()) "kill -9 `lsof  -t $deviceNode`\n" else deviceNode
             val killPort =
-                "kill  `netstat -tunlp  | grep 27015|awk '{print $7} '|awk -F '/' '{print $1}'`"
-            runCommand("$killSystemMtp.$saveFilePath/usbmuxd -X -v -f\n$killPort",isFinish = {
-                isKilling = false
-            })
+                "kill -9 `netstat -tunlp  | grep 27015|awk '{print $7} '|awk -F '/' '{print $1}'`"
+            runCommand("$killSystemMtp.$saveFilePath/usbmuxd -X -v -f\n$killPort")
+            SystemClock.sleep(2000)
+            isKilling=false
         }
 
     }
